@@ -24,7 +24,6 @@ set clipboard+=unnamedplus
 set colorcolumn=80
 
 " set leader
-" let mapleader=','
 let mapleader=' '
 let maplocalleader='\\'
 
@@ -36,8 +35,8 @@ let &t_ut=''
 
 " display
 set number
-set relativenumber
 set wrap
+set relativenumber
 set tw=0
 set cursorline
 set ruler
@@ -79,26 +78,27 @@ cnoremap w!! w !sudo tee %
 " normal mode mapings
 nnoremap <leader>s :w<cr>
 nnoremap <leader>S :source ~/.config/nvim/init.vim<cr>
-nnoremap Q :q<cr>
+nnoremap <leader>qq :q<cr>
 nnoremap <leader><cr> :nohl<cr>
 nnoremap J 6j
 nnoremap K 6k
 nnoremap H 0
 nnoremap L $
-    " window mapings
-nnoremap <leader>/ <C-w>v
-nnoremap <leader>- <C-w>s
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
+
+" window mapings
+nnoremap <leader>w/ <C-w>v
+nnoremap <leader>w- <C-w>s
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wl <C-w>l
 nnoremap <Up> <C-w>+
 nnoremap <Down> <C-w>-
 nnoremap <Left> <C-w>>
 nnoremap <Right> <C-w><
 " nnoremap <leader><Left> <C-w>t<C-w>H
 " nnoremap <leader><Right> <C-w>t<C-w>K
-    " buffer mapings
+
 " nnoremap <leader><Left> :bprevious<cr>
 " nnoremap <leader><Right> :bnext<cr>
 nnoremap <leader>f /<++><cr>:nohlsearch<cr>c4l
