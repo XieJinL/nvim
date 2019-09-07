@@ -13,6 +13,9 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" set foldmethod=indent 按缩进进行折叠
+" za，打开或关闭当前折叠；zM，关闭所有折叠；zR，打开所有折叠
+" z为有关折叠的前缀键
 
 " Editor Setup
 filetype on
@@ -197,3 +200,10 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.linenr = '¶'
 let g:airline_theme='light'
+
+" ale
+let g:ale_linters = {'c': ['clang']}
+" 触发/关闭语法检查
+nnoremap <Leader>pas :ALEToggle<CR>
+" 查看错误或警告的详细信息
+nnoremap <Leader>pad :ALEDetail<CR>
