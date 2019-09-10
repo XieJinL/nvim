@@ -67,6 +67,7 @@
 | pmt     | markdown自动排版表格(tablemode)       |
 
 - 以下命令不需要leader键
+
 | Command  | Motion             |
 | -------  | ---                |
 | F2       | 打开init.vim       |
