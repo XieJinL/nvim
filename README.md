@@ -29,12 +29,12 @@
 | H       | 0      |
 | L       | $      |
 
-### nnoremap-mode <leader>=space
-* <font color=red>以下命令都有前缀键leader</font>
+### nnoremap-mode
+- `leader=space`
+- **以下命令都有前缀键leader**
 
 | Command | Motion                                |
 | ------- | ---                                   |
-| F2      | 打开init.vim                          |
 | s       | 保存                                  |
 | S       | 重新加载init.vim                      |
 | qq      | 退出nvim                              |
@@ -63,7 +63,16 @@
 | F       | 查找修改(far)                         |
 | pfd     | 执行修改(far)                         |
 | pp      | markdown预览(markdownpreview)         |
-| ps    | 关闭markdown预览(markdownpreview)                                   |
-| pmt    | markdown自动排版表格(tablemode)                                  |
+| ps      | 关闭markdown预览(markdownpreview)     |
+| pmt     | markdown自动排版表格(tablemode)       |
 
+- 以下命令不需要leader键
+| Command  | Motion             |
+| -------  | ---                |
+| F2       | 打开init.vim       |
+| 上下左右 | 调整分屏窗口的大小 |
+| J        | 6j                 |
+| K        | 6k                 |
+| H        | 0                  |
+| L        | $                  |
 
