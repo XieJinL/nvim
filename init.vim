@@ -13,7 +13,12 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" set foldmethod=indent 按缩进进行折叠
+set nocompatible
+" 按缩进折叠indent, 语法折叠syntax
+set foldmethod=indent
+" 启动vim时关闭折叠
+set nofoldenable
+set foldlevel=99
 " za，打开或关闭当前折叠；zM，关闭所有折叠；zR，打开所有折叠
 " z为有关折叠的前缀键
 
@@ -24,17 +29,21 @@ filetype plugin on
 filetype plugin indent on
 set encoding=utf-8
 set clipboard+=unnamedplus
-set colorcolumn=80
+" set colorcolumn=80
+set mouse=n
+set hidden
+set undofile
+" set spell spellang=en_us
 
 " set leader
 let mapleader=' '
-let maplocalleader='\\'
 
 " set themes
 set background=dark
 colorscheme gruvbox8
 let g:gruvbox_transp_bg = 1
 let &t_ut=''
+let t_Co=256
 
 " display
 set number
@@ -46,6 +55,10 @@ set ruler
 set list
 set listchars=trail:▫,tab:
 set scrolloff=6
+set viewoptions=cursor
+set lazyredraw
+set inccommand=split
+set visualbell
 
 " search
 exec 'nohlsearch'
@@ -77,12 +90,14 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " vim mapings
 " SOS
-cnoremap w!! w !sudo tee %
+cnoremap w!! w !sudo tee % > /dev/null
+nnoremap <F2> :edit ~/.config/nvim/init.vim<CR>
 " normal mode mapings
 nnoremap <leader>s :w<cr>
 nnoremap <leader>S :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>qq :q<cr>
 nnoremap <leader><cr> :nohl<cr>
+nnoremap <leader>f /<++><cr>:nohlsearch<cr>c4l
 nnoremap J 6j
 nnoremap K 6k
 nnoremap H 0
@@ -95,16 +110,25 @@ nnoremap <leader>wh <C-w>h
 nnoremap <leader>wj <C-w>j
 nnoremap <leader>wk <C-w>k
 nnoremap <leader>wl <C-w>l
+nnoremap <leader>w= <C-w>=
 nnoremap <Up> <C-w>+
 nnoremap <Down> <C-w>-
 nnoremap <Left> <C-w>>
 nnoremap <Right> <C-w><
 " nnoremap <leader><Left> <C-w>t<C-w>H
 " nnoremap <leader><Right> <C-w>t<C-w>K
+nnoremap <leader><Left> :bprevious<cr>
+nnoremap <leader><Right> :bnext<cr>
+nnoremap <leader>bp :bprevious<cr>
+nnoremap <leader>bn :bnext<cr>
+nnoremap <leader>bD :bdelete %<CR>
 
-" nnoremap <leader><Left> :bprevious<cr>
-" nnoremap <leader><Right> :bnext<cr>
-nnoremap <leader>f /<++><cr>:nohlsearch<cr>c4l
+" Tab mapings
+nnoremap <leader>tN :tabe<CR>
+nnoremap <leader>tn :tabnext<CR>
+nnoremap <leader>tp :tabprevious<CR>
+nnoremap <leader><Down> :tabnext<CR>
+nnoremap <leader><Up> :tabprevious<CR>
 
 " inster mode mapings
 inoremap jk <Esc>
@@ -124,7 +148,7 @@ vnoremap L $
 " vim 插件
 call plug#begin('~/.config/nvim/plugged')
 
-" 代码补全插件(自动)
+" 代码补全插件
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/deoplete-clangx'
 " Plug 'zchee/deoplete-jedi'
@@ -135,40 +159,56 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
 Plug 'ncm2/ncm2-pyclang'
 
-" 缩进显示插件(自动)
-Plug 'nathanaelkane/vim-indent-guides'
-
-" 代码缩进提示(自动)
-Plug 'yggdroot/indentline'
-
-" 下方的提示条美化插件(自动)
+" 美化插件
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lifepillar/vim-gruvbox8'
-
-" vim启动美化插件(自动)
 Plug 'mhinz/vim-startify'
 
-" 目录树(手动)
+" 代码缩进提示
+Plug 'Yggdroot/indentLine'
+
+" 目录树
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" 模糊搜索插件(手动)
-Plug 'kien/ctrlp.vim'
+" 代码跳转
+" Plug 'ludovicchabant/vim-gutentags'
 
-" 查看代码定义(手动)
+" 查看代码定义
 Plug 'majutsushi/tagbar'
 
-" 高亮感兴趣的单词(手动)
+" 高亮感兴趣的单词
 Plug 'lfv89/vim-interestingwords'
 
-" 格式化代码(手动)
+" 格式化代码
 Plug 'sbdchd/neoformat'
 
-" 静态检查代码，显示错误(自动)
+" 静态检查代码，显示错误
 Plug 'w0rp/ale'
 
 " 括号补全插件
 Plug 'Raimondi/delimitMate'
+
+" vim-surround
+Plug 'tpope/vim-surround'
+
+" 模糊查找
+Plug '/usr/bin/fzf'
+Plug 'junegunn/fzf.vim'
+
+" far
+Plug 'brooth/far.vim'
+
+" Undo Tree
+Plug 'mbbill/undotree/'
+
+" Markdown
+Plug 'iamcco/markdown-preview.vim'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'dkarter/bullets.vim'
+
 call plug#end()
 
 " ncm2补全插件设置
@@ -189,9 +229,20 @@ set notimeout
 
 " NERDTree
 nnoremap tt :NERDTreeToggle<cr>
+let NERDTreeMapToggleHidden = "zh"
 
-" ctrlp
-let g:ctrlp_map = '<c-p>'
+" NERDTree-git
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
@@ -203,7 +254,49 @@ let g:airline_theme='light'
 
 " ale
 let g:ale_linters = {'c': ['clang']}
-" 触发/关闭语法检查
-nnoremap <Leader>pas :ALEToggle<CR>
-" 查看错误或警告的详细信息
+nnoremap <Leader>pat :ALEToggle<CR>
 nnoremap <Leader>pad :ALEDetail<CR>
+
+" indentLine
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+" tagbar
+nnoremap <leader>pt :TagbarOpenAutoClose<CR>
+
+" vim-interestingwords
+nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
+nnoremap <silent> <leader>K :call UncolorAllWords()<cr>
+let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
+let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
+" let g:interestingWordsRandomiseColors = 1
+
+" neoformat
+nnoremap <leader>pn :Neoformat<CR>
+
+" FZF
+nnoremap <C-p> :FZF<CR>
+
+" Undo Tree
+nnoremap <leader>pu :UndotreeToggle<CR>
+let g:undotree_DiffAutoOpen = 1
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_ShortIndicators = 1
+
+" far
+nnoremap <leader>F :Far  %<left><left>
+nnoremap <leader>pfd :Fardo
+" set lazyredraw
+" set regexpengine=1
+
+" Markdown
+nnoremap <leader>pp :MarkdownPreview<CR>
+nnoremap <leader>ps :MarkdownPreviewStop<CR>
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_open = 0
+let g:mkdp_auto_close = 1
+nnoremap <leader>pmt :TableModeToggle<CR>
+let g:table_mode_corner='|'
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text',
+    \]
