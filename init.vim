@@ -10,7 +10,7 @@
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 
 set nocompatible
@@ -20,7 +20,6 @@ set foldmethod=indent
 set nofoldenable
 set foldlevel=99
 " za，打开或关闭当前折叠；zM，关闭所有折叠；zR，打开所有折叠
-" z为有关折叠的前缀键
 
 " Editor Setup
 filetype on
@@ -70,7 +69,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set softtabstop=2
-" 代码格式化的一些选项
 set formatoptions-=tc
 
 " auto to dir
@@ -87,63 +85,6 @@ set splitbelow
 " 打开自动定位到上次编辑的位置
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-
-" vim mapings
-" SOS
-cnoremap w!! w !sudo tee % > /dev/null
-nnoremap <F2> :edit ~/.config/nvim/init.vim<CR>
-" normal mode mapings
-nnoremap <leader>s :w<cr>
-nnoremap <leader>S :source ~/.config/nvim/init.vim<cr>
-nnoremap <leader>qq :q<cr>
-nnoremap <leader><cr> :nohl<cr>
-nnoremap <leader>f /<++><cr>:nohlsearch<cr>c4l
-nnoremap J 6j
-nnoremap K 6k
-nnoremap H 0
-nnoremap L $
-
-" window mapings
-nnoremap <leader>w/ <C-w>v
-nnoremap <leader>w- <C-w>s
-nnoremap <leader>wh <C-w>h
-nnoremap <leader>wj <C-w>j
-nnoremap <leader>wk <C-w>k
-nnoremap <leader>wl <C-w>l
-nnoremap <leader>w= <C-w>=
-nnoremap <Up> <C-w>+
-nnoremap <Down> <C-w>-
-nnoremap <Left> <C-w>>
-nnoremap <Right> <C-w><
-" nnoremap <leader><Left> <C-w>t<C-w>H
-" nnoremap <leader><Right> <C-w>t<C-w>K
-nnoremap <leader><Left> :bprevious<cr>
-nnoremap <leader><Right> :bnext<cr>
-nnoremap <leader>bp :bprevious<cr>
-nnoremap <leader>bn :bnext<cr>
-nnoremap <leader>bD :bdelete %<CR>
-
-" Tab mapings
-nnoremap <leader>tN :tabe<CR>
-nnoremap <leader>tn :tabnext<CR>
-nnoremap <leader>tp :tabprevious<CR>
-nnoremap <leader><Down> :tabnext<CR>
-nnoremap <leader><Up> :tabprevious<CR>
-
-" inster mode mapings
-inoremap jk <Esc>
-inoremap <C-b> <Left>
-inoremap <C-f> <Right>
-inoremap <C-n> <Down>
-inoremap <C-p> <Up>
-inoremap <C-e> <Esc>$a
-inoremap <C-a> <Esc>0i
-inoremap <C-d> <del>
-
-
-" visual mode mapings
-vnoremap H 0
-vnoremap L $
 
 " vim 插件
 call plug#begin('~/.config/nvim/plugged')
@@ -203,6 +144,9 @@ Plug 'brooth/far.vim'
 " Undo Tree
 Plug 'mbbill/undotree/'
 
+" 代码注释
+Plug 'scrooloose/nerdcommenter'
+
 " Markdown
 Plug 'iamcco/markdown-preview.vim'
 Plug 'iamcco/mathjax-support-for-mkdp'
@@ -214,9 +158,6 @@ call plug#end()
 " ncm2补全插件设置
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 let ncm2#popup_delay = 2
@@ -226,9 +167,7 @@ let g:ncm2_jedi#python_version=3
 set shortmess+=c
 set notimeout
 
-
 " NERDTree
-nnoremap tt :NERDTreeToggle<cr>
 let NERDTreeMapToggleHidden = "zh"
 
 " NERDTree-git
@@ -254,49 +193,33 @@ let g:airline_theme='light'
 
 " ale
 let g:ale_linters = {'c': ['clang']}
-nnoremap <Leader>pat :ALEToggle<CR>
-nnoremap <Leader>pad :ALEDetail<CR>
 
 " indentLine
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
-" tagbar
-nnoremap <leader>pt :TagbarOpenAutoClose<CR>
-
 " vim-interestingwords
-nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
-nnoremap <silent> <leader>K :call UncolorAllWords()<cr>
 let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
 let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
 " let g:interestingWordsRandomiseColors = 1
 
-" neoformat
-nnoremap <leader>pn :Neoformat<CR>
-
-" FZF
-nnoremap <C-p> :FZF<CR>
-
 " Undo Tree
-nnoremap <leader>pu :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
 
 " far
-nnoremap <leader>F :Far  %<left><left>
-nnoremap <leader>pfd :Fardo
 " set lazyredraw
 " set regexpengine=1
 
 " Markdown
-nnoremap <leader>pp :MarkdownPreview<CR>
-nnoremap <leader>ps :MarkdownPreviewStop<CR>
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_open = 0
 let g:mkdp_auto_close = 1
-nnoremap <leader>pmt :TableModeToggle<CR>
 let g:table_mode_corner='|'
 let g:bullets_enabled_file_types = [
     \ 'markdown',
     \ 'text',
     \]
+
+"-----加载keybings.vim------"
+source ~/.config/nvim/keybindings.vim

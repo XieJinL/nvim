@@ -65,6 +65,11 @@
 | pp      | markdown预览(markdownpreview)         |
 | ps      | 关闭markdown预览(markdownpreview)     |
 | pmt     | markdown自动排版表格(tablemode)       |
+| cc      | 注释代码(NERDCommenter)               |
+| cu      | 取消注释(NERDCommenter)               |
+| c space | 智能注释(NERDCommenter)               |
+| cA      | 在代码后添加注释(NERDCommenter)       |
+| ca      | 改变注释符号dt(NERDCommenter)         |
 
 - 以下命令不需要leader键
 
