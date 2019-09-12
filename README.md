@@ -6,6 +6,7 @@
 3. install fzf for fzf `sudo pacman -S fzf`
 4. install ctags for jump function define list `sudo pacman -S ctags`
 5. install figlet for inputing text ASCII art `sudo pacman -S figlet`
+6. install xsel for use system clipboard `sudo pacman -S xsel`
 
 ## Keyboard Shortcuts
 ### command-mode
@@ -17,8 +18,6 @@
 | jk      | 进入normal-mode |
 | C-b     | left            |
 | C-f     | right           |
-| C-n     | down            |
-| C-p     | up              |
 | C-e     | 跳到行尾        |
 | C-a     | 跳到行首        |
 | C-d     | delete          |
@@ -69,16 +68,31 @@
 | cu      | 取消注释(NERDCommenter)               |
 | c space | 智能注释(NERDCommenter)               |
 | cA      | 在代码后添加注释(NERDCommenter)       |
-| ca      | 改变注释符号dt(NERDCommenter)         |
+| ca      | 改变注释符号(NERDCommenter)           |
 
 - 以下命令不需要leader键
 
-| Command  | Motion             |
-| -------  | ---                |
-| F2       | 打开init.vim       |
-| 上下左右 | 调整分屏窗口的大小 |
-| J        | 6j                 |
-| K        | 6k                 |
-| H        | 0                  |
-| L        | $                  |
+| Command  | Motion                |
+| -------  | ---                   |
+| F2       | 打开init.vim          |
+| F5       | 重新建立ctags索引列表 |
+| 上下左右 | 调整分屏窗口的大小    |
+| J        | 6j                    |
+| K        | 6k                    |
+| H        | 0                     |
+| L        | $                     |
 
+## ctags使用(函数跳转)
+| command          | use                                      |
+| -------          | ---                                      |
+| `<C-]>`          | 跳转到匹配当前光标所在关键字的第一处标签 |
+| `g<C-]>`         | 如果有多处标签则展开列表                 |
+| :tag {keyword}   | 同`<C-]>`                                |
+| :tjump {keyword} | 同`g<C-]>`                               |
+| :pop 或 `<C-t>`  | 反向遍历标签历史                         |
+| :tag             | 正向遍历标签历史                         |
+| :tnext           | 下                                       |
+| :tprev           | 上                                       |
+| :tfirst          | 第一处                                   |
+| :tlast           | 最后一处                                 |
+| :tselect         | 从标签列表中进行选择                     |

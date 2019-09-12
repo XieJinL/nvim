@@ -1,6 +1,7 @@
 " vim oneself mapings
 cnoremap w!! w !sudo tee % > /dev/null
 nnoremap <F2> :edit ~/.config/nvim/init.vim<CR>
+nnoremap <F5> :!ctags -R<CR>
 
 " normal mode mapings
 nnoremap <leader>s :w<cr>
@@ -44,8 +45,6 @@ nnoremap <leader><Up> :tabprevious<CR>
 inoremap jk <Esc>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
-inoremap <C-n> <Down>
-inoremap <C-p> <Up>
 inoremap <C-e> <Esc>$a
 inoremap <C-a> <Esc>0i
 inoremap <C-d> <del>
@@ -87,7 +86,7 @@ nnoremap <leader>pu :UndotreeToggle<CR>
 
 "------* far *-----"
 nnoremap <leader>F :Far  %<left><left>
-nnoremap <leader>pfd :Fardo
+nnoremap <leader>pfd :Fardo<CR>
 
 "-----* Markdown *------"
 nnoremap <leader>pp :MarkdownPreview<CR>
@@ -98,9 +97,15 @@ nnoremap <leader>pmt :TableModeToggle<CR>
 
 
 " -----------* autocmd *--------------"
-autocmd FileType c inoremap #i #include <><Left>
-autocmd FileType c inoremap #d #define 
+"  c
+autocmd FileType c inoremap #in #include <><Left>
+autocmd FileType c inoremap #de #define 
 
+"  cplusplus
+autocmd FileType cpp inoremap #in #include <><Left>
+autocmd FileType cpp inoremap #de #define 
+
+"  markdown
 autocmd Filetype markdown inoremap ,m ```<Enter><++><Enter>```<Enter><Enter><++><Esc>4kA
 autocmd Filetype markdown inoremap ,b **** <++><Esc>F*hi
 autocmd Filetype markdown inoremap ,c `` <++><Esc>F`i
