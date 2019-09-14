@@ -45,8 +45,6 @@ nnoremap <leader><Up> :tabprevious<CR>
 inoremap jk <Esc>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
-inoremap <C-e> <Esc>$a
-inoremap <C-a> <Esc>0i
 inoremap <C-d> <del>
 
 
@@ -69,7 +67,9 @@ nnoremap <Leader>pat :ALEToggle<CR>
 nnoremap <Leader>pad :ALEDetail<CR>
 
 "------* TagBar *-----"
-nnoremap <leader>pt :TagbarOpenAutoClose<CR>
+" nnoremap <leader>pt :TagbarOpenAutoClose<CR>
+map <silent> T :Vista!!<CR>
+map <silent> <C-t> :Vista finder<CR>
 
 "------* vim-interestingwords *-----"
 nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
@@ -93,7 +93,8 @@ nnoremap <leader>pp :MarkdownPreview<CR>
 nnoremap <leader>ps :MarkdownPreviewStop<CR>
 nnoremap <leader>pmt :TableModeToggle<CR>
 
-"-----* NERDcommenter *-----"
+"-----* Ranger-vim *-----"
+nnoremap <leader>R :Ranger<CR>
 
 
 " -----------* autocmd *--------------"

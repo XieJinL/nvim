@@ -118,7 +118,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'ludovicchabant/vim-gutentags'
 
 " 查看代码定义
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
+Plug 'liuchengxu/vista.vim'
 
 " 高亮感兴趣的单词
 Plug 'lfv89/vim-interestingwords'
@@ -163,6 +164,16 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'gko/vim-coloresque', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'pangloss/vim-javascript', { 'for' :['javascript', 'vim-plug'] }
 Plug 'mattn/emmet-vim'
+
+" ranger
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+
+" others
+Plug 'gcmt/wildfire.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'godlygeek/tabular'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -231,6 +242,32 @@ let g:bullets_enabled_file_types = [
     \ 'markdown',
     \ 'text',
     \]
+
+" wildfire
+let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
+
+" vim-multiple-cursor
+let g:multi_cursor_use_default_mapping=0
+
+" tabular
+"nnoremap <Leader>a= :Tabularize /=<CR>
+
+" vista
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+set statusline+=%{NearestMethodOrFunction()}
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+"let g:vista_default_executive = 'ctags'
+" To enable fzf's preview window set g:vista_fzf_preview.
+" The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
+" For example:
+let g:vista_fzf_preview = ['right:50%']
+
+" Ranger.vim
+let g:ranger_map_keys = 0
 
 "-----加载keybings.vim------"
 source ~/.config/nvim/keybindings.vim
