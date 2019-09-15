@@ -7,6 +7,7 @@
 4. install ctags for jump function define list `sudo pacman -S ctags`
 5. install figlet for inputing text ASCII art `sudo pacman -S figlet`
 6. install xsel for use system clipboard `sudo pacman -S xsel`
+7. install live-server for html-preview `sudo pacman -S nodejs npm` and `sudo npm install -g live-server`
 
 ## Keyboard Shortcuts
 ### command-mode
@@ -67,6 +68,7 @@
 | c space | 智能注释(NERDCommenter)               |
 | cA      | 在代码后添加注释(NERDCommenter)       |
 | ca      | 改变注释符号(NERDCommenter)           |
+| G       | 打开Goyo模式(vim-Goyo)                |
 
 - 以下命令不需要leader键
 
@@ -87,7 +89,7 @@
 | `g<A-n>`  | select_all_key(vim-multiple-cursors)                   |
 | C-x       | skip_key(vim-multiple-cursors)                         |
 | T         | 打开Vista(Vista){类似tagbar}                           |
-| C-t或C-p  | 打开FZF                                                     |
+| C-t或C-p  | 打开FZF(vim-fzf)                                       |
 
 ## ctags使用(函数跳转)
 | command          | use                                      |

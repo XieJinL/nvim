@@ -174,6 +174,8 @@ Plug 'gcmt/wildfire.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'godlygeek/tabular'
 Plug 'ryanoasis/vim-devicons'
+Plug 'vimwiki/vimwiki'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
@@ -268,6 +270,14 @@ let g:vista_fzf_preview = ['right:50%']
 
 " Ranger.vim
 let g:ranger_map_keys = 0
+
+" vimviki
+let g:vimwiki_list = [{'path': '~/Nutstore Files/Nutstore/VNOTEBOOK/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+" goyo
+" g:goyo_width (default: 80)
+" g:goyo_height (default: 85%)
+" g:goyo_linenr (default: 0)
 
 "-----加载keybings.vim------"
 source ~/.config/nvim/keybindings.vim
