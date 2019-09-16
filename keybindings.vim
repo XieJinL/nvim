@@ -106,28 +106,28 @@ nnoremap <leader>G :Goyo<CR>
 " -----------* autocmd *--------------"
 "  c
 "autocmd Filetype c iabbrev #in #include <><Left>
-autocmd FileType c inoremap #in #include <><Left>
-autocmd FileType c inoremap #de #define 
-autocmd FileType c iabbrev iff if()<cr>{<cr><tab><++><cr>}<esc>3k0f(a
-autocmd FileType c iabbrev forr for(;<++>;<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(a
-autocmd FileType c iabbrev funn (<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(i
+autocmd FileType c inoremap <buffer> #in #include <><Left>
+autocmd FileType c inoremap <buffer> #de #define 
+autocmd FileType c iabbrev <buffer> iff if()<cr>{<cr><tab><++><cr>}<esc>3k0f(a
+autocmd FileType c iabbrev <buffer> forr for(;<++>;<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(a
+autocmd FileType c iabbrev <buffer> funn (<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(i
 
 "  cplusplus
-autocmd FileType cpp inoremap #in #include <><Left>
-autocmd FileType cpp inoremap #de #define 
-autocmd FileType cpp iabbrev iff if()<cr>{<cr><tab><++><cr>}<esc>3k0f(a
-autocmd FileType cpp iabbrev forr for(;<++>;<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(a
-autocmd FileType cpp iabbrev funn (<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(i
+autocmd FileType cpp inoremap <buffer> #in #include <><Left>
+autocmd FileType cpp inoremap <buffer> #de #define 
+autocmd FileType cpp iabbrev <buffer> iff if()<cr>{<cr><tab><++><cr>}<esc>3k0f(a
+autocmd FileType cpp iabbrev <buffer> forr for(;<++>;<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(a
+autocmd FileType cpp iabbrev <buffer> funn (<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(i
 
 "  markdown
-autocmd Filetype markdown inoremap ,m ```{}<Enter><++><Enter>```<Enter><Enter><++><Esc>4k$i
-autocmd Filetype markdown inoremap ,b **** <++><Esc>F*hi
-autocmd Filetype markdown inoremap ,i ** <++><Esc>F*i
-autocmd Filetype markdown inoremap ,e ***<CR><CR>
-autocmd Filetype markdown inoremap ,p ![](<++>)<Esc>F]i
-autocmd Filetype markdown inoremap ,l [](<++>)<Esc>F]i
-autocmd FileType markdown inoremap ,1 # <CR><CR><++><Esc>kA
-autocmd FileType markdown inoremap ,2 ## <CR><++><Esc>kA
-autocmd FileType markdown inoremap ,3 ### <CR><++><Esc>kA
-autocmd FileType markdown inoremap ,4 #### <CR><++><Esc>kA
+autocmd Filetype markdown inoremap <buffer> ,m ```{}<Enter><++><Enter>```<Enter><Enter><++><Esc>4k$i
+autocmd Filetype markdown inoremap <buffer> ,b **** <++><Esc>F*hi
+autocmd Filetype markdown inoremap <buffer> ,i ** <++><Esc>F*i
+autocmd Filetype markdown inoremap <buffer> ,e ***<CR><CR>
+autocmd Filetype markdown inoremap <buffer> ,p ![](<++>)<Esc>F]i
+autocmd Filetype markdown inoremap <buffer> ,l [](<++>)<Esc>F]i
+autocmd FileType markdown inoremap <buffer> ,1 # <CR><CR><++><Esc>kA
+autocmd FileType markdown inoremap <buffer> ,2 ## <CR><++><Esc>kA
+autocmd FileType markdown inoremap <buffer> ,3 ### <CR><++><Esc>kA
+autocmd FileType markdown inoremap <buffer> ,4 #### <CR><++><Esc>kA
 

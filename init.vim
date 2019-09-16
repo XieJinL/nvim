@@ -193,6 +193,8 @@ set notimeout
 
 " NERDTree
 let NERDTreeMapToggleHidden = "zh"
+let NERDTreeDirArrowExpandable=">"
+let NERDTreeDirArrowCollapsible="v"
 
 " NERDTree-git
 let g:NERDTreeIndicatorMapCustom = {
