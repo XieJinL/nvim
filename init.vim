@@ -102,6 +102,7 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
 Plug 'ncm2/ncm2-pyclang'
+Plug 'Shougo/echodoc.vim'
 
 
 " 美化插件
@@ -305,6 +306,15 @@ let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
+" echodoc.vim
+" set cmdheight = 2
+let g:echodoc#enable_at_startup = 1
+" let g:echodoc#type = 'virtual'
+let g:echodoc#type = 'floating'
+let g:echodoc#events = ['CompleteDone']
+let g:echodoc#highlight_identifier = "Identifier"
+let g:echodoc#highlight_arguments = "Special"
+let g:echodoc#highlight_trailing = "Type"
 
 "-----加载keybings.vim------"
 source ~/.config/nvim/keybindings.vim
