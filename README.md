@@ -21,11 +21,7 @@
 | C-f     | right           |
 | C-d     | delete          |
 
-### visual-mode
-| Command | Motion |
-| ------- | ---    |
-| H       | 0      |
-| L       | $      |
+### ~~visual-mode~~
 
 ### nnoremap-mode
 - `leader=space`
@@ -77,10 +73,6 @@
 | F2        | 打开init.vim                                           |
 | F5        | 重新建立ctags索引列表                                  |
 | 上下左右  | 调整分屏窗口的大小                                     |
-| J         | 6j                                                     |
-| K         | 6k                                                     |
-| H         | 0                                                      |
-| L         | $                                                      |
 | Enter     | 选择配对符号中的字符(向下选择)(wildfire)               |
 | BackSpace | 选择配对符号中的字符(向上选择)(wildfire)               |
 | C-n       | multi_cursor_start_word_key(vim-multiple-cursors)      |

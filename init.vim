@@ -82,6 +82,9 @@ set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set splitright
 set splitbelow
 
+" 设置Universal CTags
+set tags=./.tags;,.tags
+
 " 打开自动定位到上次编辑的位置
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -116,6 +119,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " 代码跳转
 " Plug 'ludovicchabant/vim-gutentags'
+" jsfaint/gen_tags.vim
 
 " 查看代码定义
 " Plug 'majutsushi/tagbar'
@@ -218,7 +222,21 @@ let g:airline_symbols.linenr = '¶'
 let g:airline_theme='light'
 
 " ale
-let g:ale_linters = {'c': ['clang']}
+let g:ale_linters = {'c': ['gcc'],
+      \ 'cpp': ['g++']}
+let g:ale_linters_explicit = 1
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_c_cppcheck_options = ''
+let g:ale_cpp_cppcheck_options = ''
 
 " indentLine
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
@@ -240,7 +258,8 @@ let g:undotree_ShortIndicators = 1
 " Markdown
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_open = 0
-let g:mkdp_auto_close = 1
+let g:mkdp_auto_close = 0
+let g:mkdp_command_for_global = 0
 let g:table_mode_corner='|'
 let g:bullets_enabled_file_types = [
     \ 'markdown',
@@ -280,6 +299,12 @@ let g:vimwiki_list = [{'path': '~/Nutstore Files/Nutstore/VNOTEBOOK/',
 " g:goyo_width (default: 80)
 " g:goyo_height (default: 85%)
 " g:goyo_linenr (default: 0)
+
+" nerdcommenter
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
 
 "-----加载keybings.vim------"
 source ~/.config/nvim/keybindings.vim

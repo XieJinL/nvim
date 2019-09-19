@@ -9,10 +9,10 @@ nnoremap <leader>S :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>qq :q<cr>
 nnoremap <leader><cr> :nohl<cr>
 nnoremap <leader>f /<++><cr>:nohlsearch<cr>c4l
-nnoremap J 6j
-nnoremap K 6k
-nnoremap H 0
-nnoremap L $
+" nnoremap J 6j
+" nnoremap K 6k
+" nnoremap H 0
+" nnoremap L $
 
 " window mapings
 nnoremap <leader>w/ <C-w>v
@@ -49,8 +49,8 @@ inoremap <C-d> <del>
 
 
 " visual mode mapings
-vnoremap H 0
-vnoremap L $
+" vnoremap H 0
+" vnoremap L $
 "--------------* end *----------------"
 
 
