@@ -8,6 +8,7 @@
 5. install figlet for inputing text ASCII art `sudo pacman -S figlet`
 6. install xsel for use system clipboard `sudo pacman -S xsel`
 7. install live-server for html-preview `sudo pacman -S nodejs npm` and `sudo npm install -g live-server`
+8. install flake8 for python linting `sudo pip install flake8`
 
 ## Keyboard Shortcuts
 ### command-mode

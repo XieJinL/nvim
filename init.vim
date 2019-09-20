@@ -224,7 +224,8 @@ let g:airline_theme='light'
 
 " ale
 let g:ale_linters = {'c': ['gcc'],
-      \ 'cpp': ['g++']}
+      \ 'cpp': ['g++'],
+      \ 'python': ['flake8']}
 let g:ale_linters_explicit = 1
 let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
