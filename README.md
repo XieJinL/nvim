@@ -24,7 +24,7 @@
 
 ### ~~visual-mode~~
 
-### nnoremap-mode
+### normal-mode
 - `leader=space`
 - **以下命令都有前缀键leader**
 

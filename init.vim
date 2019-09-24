@@ -36,6 +36,7 @@ set undofile
 
 " set leader
 let mapleader=' '
+" let maplocalleader= ','
 
 " set themes
 set background=dark
@@ -61,8 +62,10 @@ set visualbell
 
 " search
 exec 'nohlsearch'
+set incsearch
 set ignorecase
 set smartcase
+set hlsearch
 
 " tab
 set tabstop=2
@@ -75,6 +78,7 @@ set formatoptions-=tc
 set autochdir
 
 " show commend meun
+set wildmenu
 set wildmode=longest,list,full
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 

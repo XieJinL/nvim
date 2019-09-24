@@ -110,14 +110,14 @@ autocmd FileType c inoremap <buffer> #in #include <><Left>
 autocmd FileType c inoremap <buffer> #de #define 
 autocmd FileType c iabbrev <buffer> iff if()<cr>{<cr><tab><++><cr>}<esc>3k0f(a
 autocmd FileType c iabbrev <buffer> forr for(;<++>;<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(a
-autocmd FileType c iabbrev <buffer> funn (<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(i
+" autocmd FileType c iabbrev <buffer> funn (<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(i
 
 "  cplusplus
 autocmd FileType cpp inoremap <buffer> #in #include <><Left>
 autocmd FileType cpp inoremap <buffer> #de #define 
 autocmd FileType cpp iabbrev <buffer> iff if()<cr>{<cr><tab><++><cr>}<esc>3k0f(a
 autocmd FileType cpp iabbrev <buffer> forr for(;<++>;<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(a
-autocmd FileType cpp iabbrev <buffer> funn (<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(i
+" autocmd FileType cpp iabbrev <buffer> funn (<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(i
 
 "  markdown
 autocmd Filetype markdown inoremap <buffer> ,m ```{}<Enter><++><Enter>```<Enter><Enter><++><Esc>4k$i
@@ -131,3 +131,9 @@ autocmd FileType markdown inoremap <buffer> ,2 ## <CR><++><Esc>kA
 autocmd FileType markdown inoremap <buffer> ,3 ### <CR><++><Esc>kA
 autocmd FileType markdown inoremap <buffer> ,4 #### <CR><++><Esc>kA
 
+" HTML and CSS
+autocmd Filetype html iabbrev <buffer> hhead <!DOCTYPE html><CR><html><CR><head><CR><++><CR></head><CR><body><CR><++><CR></body><CR></html><ESC>gg<space>f
+autocmd Filetype html inoremap <buffer> ,1 <h1></h1><Esc>0f>a
+autocmd Filetype html inoremap <buffer> ,2 <h2></h2><Esc>0f>a
+autocmd Filetype html inoremap <buffer> ,3 <h3></h3><Esc>0f>a
+autocmd Filetype html inoremap <buffer> ,4 <h4></h4><Esc>0f>a
