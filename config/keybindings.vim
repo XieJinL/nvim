@@ -40,6 +40,9 @@ nnoremap <leader>tn :tabnext<CR>
 nnoremap <leader>tp :tabprevious<CR>
 nnoremap <leader><Down> :tabnext<CR>
 nnoremap <leader><Up> :tabprevious<CR>
+if !has('nvim')
+  nnoremap tt :Vex<CR>
+endif
 
 " inster mode mapings
 inoremap jk <Esc>
@@ -53,56 +56,57 @@ inoremap <C-d> <del>
 " vnoremap L $
 "--------------* end *----------------"
 
+if has('nvim')
+  "-----* ncm2 *------"
+  inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-"-----* ncm2 *------"
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  "-----* NERDTree *------"
+  nnoremap tt :NERDTreeToggle<cr>
 
-"-----* NERDTree *------"
-nnoremap tt :NERDTreeToggle<cr>
+  "------* ale *------"
+  nnoremap <Leader>pat :ALEToggle<CR>
+  nnoremap <Leader>pad :ALEDetail<CR>
 
-"------* ale *------"
-nnoremap <Leader>pat :ALEToggle<CR>
-nnoremap <Leader>pad :ALEDetail<CR>
+  "------* TagBar *-----"
+  " nnoremap <leader>pt :TagbarOpenAutoClose<CR>
+  map <silent> T :Vista!!<CR>
+  map <silent> <C-t> :Vista finder<CR>
 
-"------* TagBar *-----"
-" nnoremap <leader>pt :TagbarOpenAutoClose<CR>
-map <silent> T :Vista!!<CR>
-map <silent> <C-t> :Vista finder<CR>
+  "------* vim-interestingwords *-----"
+  nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
+  nnoremap <silent> <leader>K :call UncolorAllWords()<cr>
 
-"------* vim-interestingwords *-----"
-nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
-nnoremap <silent> <leader>K :call UncolorAllWords()<cr>
+  "------* neoformat *------"
+  nnoremap <leader>pn :Neoformat<CR>
 
-"------* neoformat *------"
-nnoremap <leader>pn :Neoformat<CR>
+  "------* FZF *------"
+  nnoremap <C-p> :FZF<CR>
 
-"------* FZF *------"
-nnoremap <C-p> :FZF<CR>
+  "------* Undo Tree *-----"
+  nnoremap <leader>pu :UndotreeToggle<CR>
 
-"------* Undo Tree *-----"
-nnoremap <leader>pu :UndotreeToggle<CR>
+  "------* far *-----"
+  nnoremap <leader>F :Far  %<left><left>
+  nnoremap <leader>pfd :Fardo<CR>
 
-"------* far *-----"
-nnoremap <leader>F :Far  %<left><left>
-nnoremap <leader>pfd :Fardo<CR>
+  "-----* Markdown *------"
+  nnoremap <leader>pp :MarkdownPreview<CR>
+  nnoremap <leader>ps :MarkdownPreviewStop<CR>
+  nnoremap <leader>pmt :TableModeToggle<CR>
 
-"-----* Markdown *------"
-nnoremap <leader>pp :MarkdownPreview<CR>
-nnoremap <leader>ps :MarkdownPreviewStop<CR>
-nnoremap <leader>pmt :TableModeToggle<CR>
+  "-----* Ranger-vim *-----"
+  nnoremap <leader>R :Ranger<CR>
 
-"-----* Ranger-vim *-----"
-nnoremap <leader>R :Ranger<CR>
+  "-----* Goyo *-----"
+  nnoremap <leader>G :Goyo<CR>
 
-"-----* Goyo *-----"
-nnoremap <leader>G :Goyo<CR>
+  "-----* vimWiki *-----"
+  " :h vimwiki-commands
+  " :h vimwiki
 
-"-----* vimWiki *-----"
-" :h vimwiki-commands
-" :h vimwiki
-
+endif
 " -----------* autocmd *--------------"
 "  c
 "autocmd Filetype c iabbrev #in #include <><Left>
@@ -126,14 +130,17 @@ autocmd Filetype markdown inoremap <buffer> ,i ** <++><Esc>F*i
 autocmd Filetype markdown inoremap <buffer> ,e ***<CR><CR>
 autocmd Filetype markdown inoremap <buffer> ,p ![](<++>)<Esc>F]i
 autocmd Filetype markdown inoremap <buffer> ,l [](<++>)<Esc>F]i
-autocmd FileType markdown inoremap <buffer> ,1 # <CR><CR><++><Esc>kA
+autocmd FileType markdown inoremap <buffer> ,1 # <CR><++><Esc>kA
 autocmd FileType markdown inoremap <buffer> ,2 ## <CR><++><Esc>kA
 autocmd FileType markdown inoremap <buffer> ,3 ### <CR><++><Esc>kA
 autocmd FileType markdown inoremap <buffer> ,4 #### <CR><++><Esc>kA
 
 " HTML and CSS
 autocmd Filetype html iabbrev <buffer> hhead <!DOCTYPE html><CR><html><CR><head><CR><++><CR></head><CR><body><CR><++><CR></body><CR></html><ESC>gg<space>f
+autocmd Filetype html inoremap <buffer> ,f <Esc>0f>a
 autocmd Filetype html inoremap <buffer> ,1 <h1></h1><Esc>0f>a
 autocmd Filetype html inoremap <buffer> ,2 <h2></h2><Esc>0f>a
 autocmd Filetype html inoremap <buffer> ,3 <h3></h3><Esc>0f>a
 autocmd Filetype html inoremap <buffer> ,4 <h4></h4><Esc>0f>a
+autocmd Filetype html inoremap <buffer> ,t <title></title><Esc>0f>a
+autocmd Filetype html inoremap <buffer> ,p <p></p><Esc>0f>a

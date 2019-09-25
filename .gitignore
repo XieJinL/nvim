@@ -1,5 +1,7 @@
-autoload
-colors
-plugged
-tags
-.netrwhist
+/autoload
+/colors
+/plugged
+/tags
+/.netrwhist
+/tmp/*
+!/tmp

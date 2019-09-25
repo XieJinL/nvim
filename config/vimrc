@@ -1,0 +1,99 @@
+set nocompatible
+filetype on
+filetype indent on
+filetype plugin on
+filetype plugin indent on
+set encoding=utf-8
+set mouse=n
+set foldmethod=indent
+set nofoldenable
+set foldlevel=99
+" set spell spellang=en_us
+
+set hidden
+set undofile
+silent !mkdir -p ~/.config/nvim/tmp/undo
+set undodir=~/.config/nvim/tmp/undo
+
+" set leader
+let mapleader=' '
+
+
+" display
+set number
+set wrap
+set relativenumber
+set tw=0
+set cursorline
+set ruler
+set list
+set listchars=trail:▫,tab:
+set scrolloff=6
+set viewoptions=cursor
+set lazyredraw
+set inccommand=split
+set visualbell
+
+" indent
+set autoindent
+set indentexpr=
+set backspace=indent,eol,start
+
+" search
+exec 'nohlsearch'
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+
+" tab
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set softtabstop=2
+set formatoptions-=tc
+
+" auto to dir
+set laststatus=2
+set showcmd
+set autochdir
+
+" show commend meun
+set wildmenu
+set wildmode=longest,list,full
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
+
+" split window behaviors
+set splitright
+set splitbelow
+
+" 设置Universal CTags
+set tags=./.tags;,.tags
+
+" 打开自动定位到上次编辑的位置
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+if has('nvim')
+  " ---- nvim ---- "
+  " syntax enable
+  " syntax on
+  set clipboard+=unnamedplus
+  set background=dark
+  colorscheme gruvbox8
+  let g:gruvbox_transp_bg = 1
+  let &t_ut=''
+  let t_Co=256
+else
+  " ---- vim ---- "
+  syntax enable
+  syntax on
+  set clipboard=unnamedplus
+  colorscheme torte
+  set background=dark
+
+  " ---- gvim ---- "
+  set guifont=Source\ Code\ Pro\ 16
+  set guioptions-=T
+  set guioptions-=r
+  set guioptions-=m
+endif
