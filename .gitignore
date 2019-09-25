@@ -3,5 +3,4 @@
 /plugged
 /tags
 /.netrwhist
-/tmp/*
-!/tmp
+/tmp

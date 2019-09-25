@@ -13,7 +13,7 @@ set foldlevel=99
 set hidden
 set undofile
 silent !mkdir -p ~/.config/nvim/tmp/undo
-set undodir=~/.config/nvim/tmp/undo
+set undodir=~/.config/nvim/tmp/undo,.
 
 " set leader
 let mapleader=' '
@@ -31,7 +31,6 @@ set listchars=trail:▫,tab:
 set scrolloff=6
 set viewoptions=cursor
 set lazyredraw
-set inccommand=split
 set visualbell
 
 " indent
@@ -83,6 +82,7 @@ if has('nvim')
   let g:gruvbox_transp_bg = 1
   let &t_ut=''
   let t_Co=256
+  set inccommand=split
 else
   " ---- vim ---- "
   syntax enable
