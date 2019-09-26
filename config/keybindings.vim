@@ -1,3 +1,6 @@
+" set leader
+let mapleader=' '
+
 " vim oneself mapings
 cnoremap w!! w !sudo tee % > /dev/null
 nnoremap <F2> :edit ~/.config/nvim/init.vim<CR>
@@ -9,10 +12,6 @@ nnoremap <leader>S :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>qq :q<cr>
 nnoremap <leader><cr> :nohl<cr>
 nnoremap <leader>f /<++><cr>:nohlsearch<cr>c4l
-" nnoremap J 6j
-" nnoremap K 6k
-" nnoremap H 0
-" nnoremap L $
 
 " window mapings
 nnoremap <leader>w/ <C-w>v
@@ -38,11 +37,24 @@ nnoremap <leader>bD :bdelete %<CR>
 nnoremap <leader>tN :tabe<CR>
 nnoremap <leader>tn :tabnext<CR>
 nnoremap <leader>tp :tabprevious<CR>
+nnoremap <leader>tD :tabclose<CR>
 nnoremap <leader><Down> :tabnext<CR>
 nnoremap <leader><Up> :tabprevious<CR>
 if !has('nvim')
   nnoremap tt :Vex<CR>
 endif
+
+" show HEX and return
+nnoremap <leader>xd :%!xxd<CR>
+nnoremap <leader>xr :%!xxd -r<CR>
+
+" set coding gbk or utf-8
+nnoremap <leader>eg :e ++enc=gbk<CR>
+nnoremap <leader>eu :e ++enc=utf8<CR>
+
+" use ]+space create spaceline
+nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
 " inster mode mapings
 inoremap jk <Esc>
@@ -50,10 +62,14 @@ inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-d> <del>
 
-
 " visual mode mapings
-" vnoremap H 0
-" vnoremap L $
+
+
+" command mode mapings
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-d> <del>
+
 "--------------* end *----------------"
 
 if has('nvim')

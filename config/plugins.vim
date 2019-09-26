@@ -28,7 +28,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " 代码跳转
 " Plug 'ludovicchabant/vim-gutentags'
-" jsfaint/gen_tags.vim
+" Plug 'jsfaint/gen_tags.vim'
 
 " 查看代码定义
 " Plug 'majutsushi/tagbar'
@@ -158,9 +158,13 @@ let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
 " let g:interestingWordsRandomiseColors = 1
 
 " Undo Tree
+let g:undotree_CustomUndotreeCmd  = 'topleft vertical 40 new'
+let g:undotree_CustomDiffpanelCmd = 'botright 10 new'
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
+" let g:undotree_SplitWidth = 40
+let g:undotree_HighlightChangedText = 1
 
 " far
 " set lazyredraw

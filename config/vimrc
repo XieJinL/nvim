@@ -3,43 +3,71 @@ filetype on
 filetype indent on
 filetype plugin on
 filetype plugin indent on
+set nomodeline  " disable mode lines (security measure)
 set encoding=utf-8
-set mouse=n
+set termencoding=utf-8
+set fileencodings=utf-8,gbk,utf-16le,cp1252,iso-8859-15,ucs-bom
+set fileformats=unix,dos,mac
+set mouse=a
+
 set foldmethod=indent
 set nofoldenable
 set foldlevel=99
-" set spell spellang=en_us
+set foldlevelstart=99
 
 set hidden
+
+set confirm
+
 set undofile
-silent !mkdir -p ~/.config/nvim/tmp/undo
-set undodir=~/.config/nvim/tmp/undo,.
+set undolevels=1000
+set undoreload=10000
+set nobackup
+set noswapfile
+silent !mkdir -p ~/.config/nvim/tmp/{undo,swp,backup}
+set undodir=~/.config/nvim/tmp/undo//,.
+set backupdir=~/.config/nvim/tmp/backup//,.
+set directory=~/.config/nvim/tmp/swp//,.
 
-" set leader
-let mapleader=' '
-
-
-" display
 set number
-set wrap
 set relativenumber
-set tw=0
+set textwidth=0
+set wrap
+set linebreak
+set wrapmargin=2
 set cursorline
 set ruler
 set list
 set listchars=trail:▫,tab:
 set scrolloff=6
-set viewoptions=cursor
+set viewoptions=folds,options,cursor,unix,slash  " Better Unix / Windows compatibility
+" set colorcolumn=+1  " color the 81 column for warning
+
+" open big file for fast
 set lazyredraw
+
+" cancel the annoying bell
 set visualbell
+set noerrorbells
+set noerrorbells novisualbell t_vb=
+set belloff=all
+
+set autoread
+set autowrite
+set autowriteall
+" set virtualedit=onemore  " used with caution of breaking plugins
 
 " indent
 set autoindent
 set indentexpr=
 set backspace=indent,eol,start
+set smartindent
+" set paste
+" set copyindent
 
 " search
 exec 'nohlsearch'
+set showmatch
 set incsearch
 set ignorecase
 set smartcase
@@ -51,29 +79,49 @@ set shiftwidth=2
 set expandtab
 set softtabstop=2
 set formatoptions-=tc
+" set smarttab
 
 " auto to dir
 set laststatus=2
 set showcmd
 set autochdir
+set history=1000  " save 1000 cmd
+set timeoutlen=500  " give u 500 time to react for cmd
 
 " show commend meun
 set wildmenu
-set wildmode=longest,list,full
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
+if has('nvim')  " Use floating windows to complete the commond, only neovim support
+  set wildoptions=pum
+  set termguicolors  " With out this settings, transparable float-win will not work normally
+  set pumblend=30  " Let floatingwindow to be transparable
+else " for vim
+  set wildmode=list:longest,full  " Set list to show completeopt, however it will lead to disfunc for floating windows
+endif
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,.git\*,.hg\*,.svn\*
 
 " split window behaviors
 set splitright
 set splitbelow
 
-" 设置Universal CTags
+" set Universal CTags
 set tags=./.tags;,.tags
+let gitroot = substitute(system('git rev-parse --show-toplevel'),'[\n\r]', '', 'g') " Make tags placed in .git/tags file available in all levels of a repository
+if gitroot != ''
+    let &tags = &tags . ',' . gitroot . '/.git/tags'
+endif
+
+" set whichwrap=b,s,h,l,<,>,~,[,] " Backspace and cursor keys wrap too
+" set iskeyword-=_,.,=,-,:,
+" set spell spellang=en_us
+" set dictionary+=~/.config/nvim/dict
+" display and register show register content
+
+set switchbuf=useopen  " quickfix window instead of opening new buffers
 
 " 打开自动定位到上次编辑的位置
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-if has('nvim')
-  " ---- nvim ---- "
+if has('nvim')  " for nvim
   " syntax enable
   " syntax on
   set clipboard+=unnamedplus
@@ -83,13 +131,14 @@ if has('nvim')
   let &t_ut=''
   let t_Co=256
   set inccommand=split
-else
-  " ---- vim ---- "
+else   " for vim
   syntax enable
   syntax on
   set clipboard=unnamedplus
   colorscheme torte
   set background=dark
+  set ttyfast
+  set completeopt=menuone,menu,preview,longest
 
   " ---- gvim ---- "
   set guifont=Source\ Code\ Pro\ 16
