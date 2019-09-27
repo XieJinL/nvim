@@ -11,7 +11,7 @@ nnoremap <leader>s :w<cr>
 nnoremap <leader>S :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>qq :q<cr>
 nnoremap <leader><cr> :nohl<cr>
-nnoremap <leader>f /<++><cr>:nohlsearch<cr>c4l
+nnoremap <leader>f /<++><cr>:nohlsearch<cr>"_c4l
 
 " window mapings
 nnoremap <leader>w/ <C-w>v
@@ -21,12 +21,15 @@ nnoremap <leader>wj <C-w>j
 nnoremap <leader>wk <C-w>k
 nnoremap <leader>wl <C-w>l
 nnoremap <leader>w= <C-w>=
+nnoremap <leader>wo <C-w>o
+nnoremap <leader>wc <C-w>c
+" nnoremap <leader>wq <C-w>q
 nnoremap <Up> <C-w>+
 nnoremap <Down> <C-w>-
 nnoremap <Left> <C-w>>
 nnoremap <Right> <C-w><
-" nnoremap <leader><Left> <C-w>t<C-w>H
-" nnoremap <leader><Right> <C-w>t<C-w>K
+" nnoremap <leader>wth <C-w>t<C-w>H
+" nnoremap <leader>wtk <C-w>t<C-w>K
 nnoremap <leader><Left> :bprevious<cr>
 nnoremap <leader><Right> :bnext<cr>
 nnoremap <leader>bp :bprevious<cr>
@@ -70,7 +73,10 @@ cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
 cnoremap <C-d> <del>
 
+"-------------------------------------"
 "--------------* end *----------------"
+"-------------------------------------"
+
 
 if has('nvim')
   "-----* ncm2 *------"
@@ -123,40 +129,3 @@ if has('nvim')
   " :h vimwiki
 
 endif
-" -----------* autocmd *--------------"
-"  c
-"autocmd Filetype c iabbrev #in #include <><Left>
-autocmd FileType c inoremap <buffer> #in #include <><Left>
-autocmd FileType c inoremap <buffer> #de #define 
-autocmd FileType c iabbrev <buffer> iff if()<cr>{<cr><tab><++><cr>}<esc>3k0f(a
-autocmd FileType c iabbrev <buffer> forr for(;<++>;<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(a
-" autocmd FileType c iabbrev <buffer> funn (<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(i
-
-"  cplusplus
-autocmd FileType cpp inoremap <buffer> #in #include <><Left>
-autocmd FileType cpp inoremap <buffer> #de #define 
-autocmd FileType cpp iabbrev <buffer> iff if()<cr>{<cr><tab><++><cr>}<esc>3k0f(a
-autocmd FileType cpp iabbrev <buffer> forr for(;<++>;<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(a
-" autocmd FileType cpp iabbrev <buffer> funn (<++>)<cr>{<cr><tab><++><cr>}<esc>3k0f(i
-
-"  markdown
-autocmd Filetype markdown inoremap <buffer> ,m ```{}<Enter><++><Enter>```<Enter><Enter><++><Esc>4k$i
-autocmd Filetype markdown inoremap <buffer> ,b **** <++><Esc>F*hi
-autocmd Filetype markdown inoremap <buffer> ,i ** <++><Esc>F*i
-autocmd Filetype markdown inoremap <buffer> ,e ***<CR><CR>
-autocmd Filetype markdown inoremap <buffer> ,p ![](<++>)<Esc>F]i
-autocmd Filetype markdown inoremap <buffer> ,l [](<++>)<Esc>F]i
-autocmd FileType markdown inoremap <buffer> ,1 # <CR><++><Esc>kA
-autocmd FileType markdown inoremap <buffer> ,2 ## <CR><++><Esc>kA
-autocmd FileType markdown inoremap <buffer> ,3 ### <CR><++><Esc>kA
-autocmd FileType markdown inoremap <buffer> ,4 #### <CR><++><Esc>kA
-
-" HTML and CSS
-autocmd Filetype html iabbrev <buffer> hhead <!DOCTYPE html><CR><html><CR><head><CR><++><CR></head><CR><body><CR><++><CR></body><CR></html><ESC>gg<space>f
-autocmd Filetype html inoremap <buffer> ,f <Esc>0f>a
-autocmd Filetype html inoremap <buffer> ,1 <h1></h1><Esc>0f>a
-autocmd Filetype html inoremap <buffer> ,2 <h2></h2><Esc>0f>a
-autocmd Filetype html inoremap <buffer> ,3 <h3></h3><Esc>0f>a
-autocmd Filetype html inoremap <buffer> ,4 <h4></h4><Esc>0f>a
-autocmd Filetype html inoremap <buffer> ,t <title></title><Esc>0f>a
-autocmd Filetype html inoremap <buffer> ,p <p></p><Esc>0f>a

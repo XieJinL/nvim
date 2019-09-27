@@ -10,6 +10,12 @@ set fileencodings=utf-8,gbk,utf-16le,cp1252,iso-8859-15,ucs-bom
 set fileformats=unix,dos,mac
 set mouse=a
 
+set background=dark
+colorscheme gruvbox8
+let g:gruvbox_transp_bg = 1
+let &t_ut=''
+let t_Co=256
+
 set foldmethod=indent
 set nofoldenable
 set foldlevel=99
@@ -85,18 +91,20 @@ set formatoptions-=tc
 set laststatus=2
 set showcmd
 set autochdir
-set history=1000  " save 1000 cmd
-set timeoutlen=500  " give u 500 time to react for cmd
+set history=1000
+set timeoutlen=500
+set timeout
 
 " show commend meun
 set wildmenu
 if has('nvim')  " Use floating windows to complete the commond, only neovim support
   set wildoptions=pum
-  set termguicolors  " With out this settings, transparable float-win will not work normally
+  " set termguicolors " 和一个插件冲突
   set pumblend=30  " Let floatingwindow to be transparable
 else " for vim
-  set wildmode=list:longest,full  " Set list to show completeopt, however it will lead to disfunc for floating windows
+  set wildmode=list:longest,full
 endif
+
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,.git\*,.hg\*,.svn\*
 
 " split window behaviors
@@ -125,23 +133,17 @@ if has('nvim')  " for nvim
   " syntax enable
   " syntax on
   set clipboard+=unnamedplus
-  set background=dark
-  colorscheme gruvbox8
-  let g:gruvbox_transp_bg = 1
-  let &t_ut=''
-  let t_Co=256
   set inccommand=split
+
 else   " for vim
   syntax enable
   syntax on
   set clipboard=unnamedplus
-  colorscheme torte
-  set background=dark
   set ttyfast
   set completeopt=menuone,menu,preview,longest
 
   " ---- gvim ---- "
-  set guifont=Source\ Code\ Pro\ 16
+  set guifont=Source\ Code\ Pro\ 14
   set guioptions-=T
   set guioptions-=r
   set guioptions-=m

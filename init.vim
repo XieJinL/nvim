@@ -21,3 +21,4 @@ if has('nvim')
 endif
 
 source ~/.config/nvim/config/keybindings.vim
+source ~/.config/nvim/config/snippet.vim
