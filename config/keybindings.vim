@@ -1,7 +1,7 @@
 " set leader
 let mapleader=' '
 
-" vim oneself mapings
+" vim useful mapings
 cnoremap w!! w !sudo tee % > /dev/null
 nnoremap <F2> :edit ~/.config/nvim/init.vim<CR>
 nnoremap <F5> :!ctags -R<CR>
@@ -30,6 +30,8 @@ nnoremap <Left> <C-w>>
 nnoremap <Right> <C-w><
 " nnoremap <leader>wth <C-w>t<C-w>H
 " nnoremap <leader>wtk <C-w>t<C-w>K
+
+" buffer mapings
 nnoremap <leader><Left> :bprevious<cr>
 nnoremap <leader><Right> :bnext<cr>
 nnoremap <leader>bp :bprevious<cr>
@@ -66,6 +68,8 @@ inoremap <C-f> <Right>
 inoremap <C-d> <del>
 
 " visual mode mapings
+" vnoremap <silent> <leader>a <Esc>a"<Esc>gvo<Esc>i"<Esc>
+vnoremap <silent> <leader>a di""<Esc>P
 
 
 " command mode mapings

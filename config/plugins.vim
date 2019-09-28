@@ -1,3 +1,4 @@
+" 插件安装和配置
 call plug#begin('~/.config/nvim/plugged')
 
 " 代码补全插件
@@ -94,7 +95,7 @@ Plug 'junegunn/goyo.vim'
 call plug#end()
 
 
-" ncm2
+" ----- * ncm2 * ----- "
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
 " :help Ncm2PopupOpen for more information
@@ -106,12 +107,12 @@ let g:ncm2_jedi#python_version=3
 set shortmess+=c
 set notimeout
 
-" NERDTree
+" ----- * NERDTree * ----- "
 let NERDTreeMapToggleHidden = "zh"
 let NERDTreeDirArrowExpandable=">"
 let NERDTreeDirArrowCollapsible="v"
 
-" NERDTree-git
+" ----- * NERDTree-git * ----- "
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -124,7 +125,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-" airline
+" ----- * airline * ----- "
 let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -132,7 +133,7 @@ endif
 let g:airline_symbols.linenr = '¶'
 let g:airline_theme='light'
 
-" ale
+" ----- * ale * ----- "
 let g:ale_linters = {'c': ['gcc'],
       \ 'cpp': ['g++'],
       \ 'python': ['flake8']}
@@ -150,15 +151,15 @@ let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 let g:ale_c_cppcheck_options = ''
 let g:ale_cpp_cppcheck_options = ''
 
-" indentLine
+" ----- * indentLine * ----- "
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
-" vim-interestingwords
+" ----- * vim-interestingwords * ----- "
 let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
 " let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
 " let g:interestingWordsRandomiseColors = 1
 
-" Undo Tree
+" ----- * Undo Tree * ----- "
 let g:undotree_CustomUndotreeCmd  = 'topleft vertical 40 new'
 let g:undotree_CustomDiffpanelCmd = 'botright 10 new'
 let g:undotree_DiffAutoOpen = 1
@@ -167,11 +168,11 @@ let g:undotree_ShortIndicators = 1
 " let g:undotree_SplitWidth = 40
 let g:undotree_HighlightChangedText = 1
 
-" far
+" ----- * far * ----- "
 " set lazyredraw
 " set regexpengine=1
 
-" Markdown
+" ----- * Markdown * ----- "
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_open = 0
 let g:mkdp_auto_close = 0
@@ -182,16 +183,16 @@ let g:bullets_enabled_file_types = [
     \ 'text',
     \]
 
-" wildfire
+" ----- * wildfire * ----- "
 let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
 
-" vim-multiple-cursor
+" ----- * vim-multiple-cursor * ----- "
 let g:multi_cursor_use_default_mapping=0
 
-" tabular
+" ----- * tabular * ----- "
 "nnoremap <Leader>a= :Tabularize /=<CR>
 
-" vista
+" ----- * vista * ----- "
 function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
@@ -205,23 +206,23 @@ let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 " For example:
 let g:vista_fzf_preview = ['right:50%']
 
-" Ranger.vim
+" ----- * Ranger.vim * ----- "
 let g:ranger_map_keys = 0
 
-" vimviki
+" ----- * vimviki * ----- "
 let g:vimwiki_list = [{'path': '~/Nutstore Files/Nutstore/VNOTEBOOK/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
-" goyo
+" ----- * goyo * ----- "
 " g:goyo_width (default: 80)
 " g:goyo_height (default: 85%)
 " g:goyo_linenr (default: 0)
 
-" nerdcommenter
+" ----- * nerdcommenter * ----- "
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
-" echodoc.vim
+" ----- * echodoc.vim * ----- "
 " set cmdheight = 2
 let g:echodoc#enable_at_startup = 1
 " let g:echodoc#type = 'virtual'
