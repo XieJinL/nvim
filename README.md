@@ -8,11 +8,11 @@
 5. install figlet for inputing text ASCII art `sudo pacman -S figlet`
 6. install xsel for use system clipboard `sudo pacman -S xsel`
 7. install live-server for html-preview `sudo pacman -S nodejs npm` and `sudo npm install -g live-server`
-8. install flake8 for python linting `sudo pip install flake8`
+8. install flake8 and jedi for python linting and completion `sudo pip install flake8 jedi `
 
 ## Keyboard Shortcuts
 ### command-mode
-`:w!!` 提权保存
+`:w!!` 提权保存(nvim无法使用)
 
 ### insert-mode
 | Command | Motion          |
@@ -22,10 +22,13 @@
 | C-f     | right           |
 | C-d     | delete          |
 
-### ~~visual-mode~~
+### visual-mode
+| Command     | Motion                 |
+| ----        | ----                   |
+| `<leader>a` | 将选中的文本添加双引号 |
 
 ### normal-mode
-- `leader=space`
+- `<leader>=space`
 - **以下命令都有前缀键leader**
 
 | Command | Motion                                |
@@ -42,12 +45,15 @@
 | wk      | 向上切换光标所在屏幕                  |
 | wl      | 向右切换光标所在屏幕                  |
 | w=      | 平均调整屏幕                          |
+| wo      | 只剩下这一个窗口                      |
+| wc      | 关闭当前窗口                          |
 | bp      | 上一个buffer                          |
 | bn      | 下一个buffer                          |
 | bD      | 删除当前buffer                        |
 | tN      | 新建一个tab                           |
 | tn      | 下一个tab                             |
 | tp      | 上一个tab                             |
+| tD      | 关闭一个标签                          |
 | pat     | 打开或关闭代码检查(ale)               |
 | pad     | 查看代码错误的详细信息(ale)           |
 | R       | 打开文件管理器Ranger                  |
@@ -66,6 +72,18 @@
 | cA      | 在代码后添加注释(NERDCommenter)       |
 | ca      | 改变注释符号(NERDCommenter)           |
 | G       | 打开Goyo模式(vim-Goyo)                |
+| xd      | 切换为16进制模式                      |
+| xr      | 切换回文本模式                        |
+| eu      | 切换编码为utf-8(默认)                 |
+| eg      | 切换编码为gbk                         |
+
+### Ex-mode
+
+| Command | Motion |
+| ----    | ----   |
+| C-f     | Right  |
+| C-b     | Left   |
+| C-d     | delete |
 
 - 以下命令不需要leader键
 

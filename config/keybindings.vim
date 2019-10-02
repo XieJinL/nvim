@@ -72,7 +72,7 @@ inoremap <C-d> <del>
 vnoremap <silent> <leader>a di""<Esc>P
 
 
-" command mode mapings
+" Ex-mode mapings
 cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
 cnoremap <C-d> <del>
