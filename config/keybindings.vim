@@ -3,6 +3,10 @@ let mapleader=' '
 
 " vim useful mapings
 cnoremap w!! w !sudo tee % > /dev/null
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-d> <del>
+
 nnoremap <F2> :edit ~/.config/nvim/init.vim<CR>
 nnoremap <F5> :!ctags -R<CR>
 
@@ -12,6 +16,7 @@ nnoremap <leader>S :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>qq :q<cr>
 nnoremap <leader><cr> :nohl<cr>
 nnoremap <leader>f /<++><cr>:nohlsearch<cr>"_c4l
+nnoremap <C-k> d$
 
 " window mapings
 nnoremap <leader>w/ <C-w>v
@@ -63,6 +68,7 @@ nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
 " inster mode mapings
 inoremap jk <Esc>
+inoremap <C-j> <Esc>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-d> <del>
@@ -70,12 +76,6 @@ inoremap <C-d> <del>
 " visual mode mapings
 " vnoremap <silent> <leader>a <Esc>a"<Esc>gvo<Esc>i"<Esc>
 vnoremap <silent> <leader>a di""<Esc>P
-
-
-" Ex-mode mapings
-cnoremap <C-b> <Left>
-cnoremap <C-f> <Right>
-cnoremap <C-d> <del>
 
 "-------------------------------------"
 "--------------* end *----------------"
@@ -97,8 +97,8 @@ if has('nvim')
 
   "------* TagBar *-----"
   " nnoremap <leader>pt :TagbarOpenAutoClose<CR>
-  map <silent> T :Vista!!<CR>
-  map <silent> <C-t> :Vista finder<CR>
+  nnoremap <silent> T :Vista!!<CR>
+  nnoremap <silent> <C-t> :Vista finder<CR>
 
   "------* vim-interestingwords *-----"
   nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
@@ -120,7 +120,7 @@ if has('nvim')
   "-----* Markdown *------"
   nnoremap <leader>pp :MarkdownPreview<CR>
   nnoremap <leader>ps :MarkdownPreviewStop<CR>
-  nnoremap <leader>pmt :TableModeToggle<CR>
+  " nnoremap <leader>pmt :TableModeToggle<CR> 不再使用该插件
 
   "-----* Ranger-vim *-----"
   nnoremap <leader>R :Ranger<CR>
@@ -131,5 +131,17 @@ if has('nvim')
   "-----* vimWiki *-----"
   " :h vimwiki-commands
   " :h vimwiki
+
+  "-----* multi-cursor *-----"
+  let g:multi_cursor_use_default_mapping=0
+  " Default mapping
+  let g:multi_cursor_start_word_key      = '<C-n>'
+  let g:multi_cursor_select_all_word_key = '<A-n>'
+  let g:multi_cursor_start_key           = 'g<C-n>'
+  let g:multi_cursor_select_all_key      = 'g<A-n>'
+  let g:multi_cursor_next_key            = '<C-n>'
+  let g:multi_cursor_prev_key            = '<C-p>'
+  let g:multi_cursor_skip_key            = '<C-x>'
+  let g:multi_cursor_quit_key            = '<Esc>'
 
 endif

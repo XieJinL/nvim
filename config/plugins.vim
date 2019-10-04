@@ -17,10 +17,10 @@ Plug 'Shougo/echodoc.vim'
 " 美化插件
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'lifepillar/vim-gruvbox8'
-Plug 'mhinz/vim-startify'
-Plug 'taigacute/gruvbox9'
 " Plug 'liuchengxu/space-vim-theme'
+Plug 'taigacute/gruvbox9'
+Plug 'mhinz/vim-startify'
+Plug 'ryanoasis/vim-devicons'  " 图标
 
 " 代码缩进提示
 Plug 'Yggdroot/indentLine'
@@ -68,8 +68,9 @@ Plug 'scrooloose/nerdcommenter'
 " Markdown
 Plug 'iamcco/markdown-preview.vim'
 Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'dhruvasagar/vim-table-mode'
 Plug 'dkarter/bullets.vim'
+Plug 'godlygeek/tabular' " 文本对齐
+Plug 'vimwiki/vimwiki'
 
 "Bookmakrs
 Plug 'kshenoy/vim-signature'
@@ -86,11 +87,8 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 
 " others
-Plug 'gcmt/wildfire.vim'
+" Plug 'gcmt/wildfire.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'godlygeek/tabular'
-Plug 'ryanoasis/vim-devicons'
-Plug 'vimwiki/vimwiki'
 Plug 'junegunn/goyo.vim'
 
 call plug#end()
@@ -184,9 +182,6 @@ let g:bullets_enabled_file_types = [
     \ 'text',
     \]
 
-" ----- * wildfire * ----- "
-let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
-
 " ----- * vim-multiple-cursor * ----- "
 let g:multi_cursor_use_default_mapping=0
 
@@ -213,6 +208,7 @@ let g:ranger_map_keys = 0
 " ----- * vimviki * ----- "
 let g:vimwiki_list = [{'path': '~/Nutstore Files/Nutstore/VNOTEBOOK/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
 " ----- * goyo * ----- "
 " g:goyo_width (default: 80)
 " g:goyo_height (default: 85%)

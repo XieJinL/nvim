@@ -12,7 +12,14 @@
 
 ## Keyboard Shortcuts
 ### command-mode
-`:w!!` 提权保存(nvim无法使用)
+
+| Command | Motion                 |
+| ----    | ----                   |
+| C-f     | Right                  |
+| C-b     | Left                   |
+| C-d     | delete                 |
+| `:w!!`  | 提权保存(nvim无法使用) |
+
 
 ### insert-mode
 | Command | Motion          |
@@ -65,7 +72,7 @@
 | pfd     | 执行修改(far)                         |
 | pp      | markdown预览(markdownpreview)         |
 | ps      | 关闭markdown预览(markdownpreview)     |
-| pmt     | markdown自动排版表格(tablemode)       |
+| ~~pmt~~ | ~~markdown自动排版表格(tablemode)~~   |
 | cc      | 注释代码(NERDCommenter)               |
 | cu      | 取消注释(NERDCommenter)               |
 | c space | 智能注释(NERDCommenter)               |
@@ -77,30 +84,20 @@
 | eu      | 切换编码为utf-8(默认)                 |
 | eg      | 切换编码为gbk                         |
 
-### Ex-mode
-
-| Command | Motion |
-| ----    | ----   |
-| C-f     | Right  |
-| C-b     | Left   |
-| C-d     | delete |
-
 - 以下命令不需要leader键
 
-| Command   | Motion                                                 |
-| -------   | ---                                                    |
-| F2        | 打开init.vim                                           |
-| F5        | 重新建立ctags索引列表                                  |
-| 上下左右  | 调整分屏窗口的大小                                     |
-| Enter     | 选择配对符号中的字符(向下选择)(wildfire)               |
-| BackSpace | 选择配对符号中的字符(向上选择)(wildfire)               |
-| C-n       | multi_cursor_start_word_key(vim-multiple-cursors)      |
-| A-n       | multi_cursor_select_all_word_key(vim-multiple-cursors) |
-| `g<C-n>`  | start_key(vim-multiple-cursors)                        |
-| `g<A-n>`  | select_all_key(vim-multiple-cursors)                   |
-| C-x       | skip_key(vim-multiple-cursors)                         |
-| T         | 打开Vista(Vista){类似tagbar}                           |
-| C-t或C-p  | 打开FZF(vim-fzf)                                       |
+| Command  | Motion                                                 |
+| -------  | ---                                                    |
+| F2       | 打开init.vim                                           |
+| F5       | 重新建立ctags索引列表                                  |
+| 上下左右 | 调整分屏窗口的大小                                     |
+| C-n      | multi_cursor_start_word_key(vim-multiple-cursors)      |
+| A-n      | multi_cursor_select_all_word_key(vim-multiple-cursors) |
+| `g<C-n>` | start_key(vim-multiple-cursors)                        |
+| `g<A-n>` | select_all_key(vim-multiple-cursors)                   |
+| C-x      | skip_key(vim-multiple-cursors)                         |
+| T        | 打开Vista(Vista){类似tagbar}                           |
+| C-t或C-p | 打开FZF(vim-fzf)                                       |
 
 ## ctags使用(函数跳转)
 | command          | use                                      |
@@ -122,10 +119,10 @@
 
 > `:lmake` `:lgrep` `:lvimgrep`会生成位置列表
 
-| command  | use                    |
-| -------  | ---                    |
-| :cnext   | 跳到下一项             |
-| :cprev   | 跳到上一项             |
+| command | use                    |
+| ------- | ---                    |
+| :cnext  | 跳到下一项             |
+| :cprev  | 跳到上一项             |
 | :cfirst | 首项                   |
 | :clast  | 最后一项               |
 | :cnfile | 跳到下个文件的第一项   |
